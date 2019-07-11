@@ -52,7 +52,7 @@ void cmd_vel_CB(const geometry_msgs::Twist cmd_vel){
 
 
 int main(int argc, char **argv){
-    ros::init(argc, argv, "uart");
+    ros::init(argc, argv, "uart_stm32");
     ros::NodeHandle nh;
     uart_sub = nh.subscribe<geometry_msgs::Twist>("/cmd_vel", 1000,cmd_vel_CB);
     try
