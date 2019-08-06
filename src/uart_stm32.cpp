@@ -95,7 +95,7 @@ void data_analysis(std::vector<uint8_t> csum){
             odom_trans.transform.translation.z = 0.0;
             odom_trans.transform.rotation = odom_quat;
 
-            odom_broadcaster.sendTransform(odom_trans);
+//            odom_broadcaster.sendTransform(odom_trans);
 
             odom.header.stamp = current_time;
             odom.header.frame_id = "odom";
@@ -130,7 +130,7 @@ void data_pack(const geometry_msgs::Twist cmd_vel){
     if(fabs(Vx)<256 && fabs(Vy)<256 && fabs(Ang_v)<256){
         memset(s_buffer,0,sBUFFERSIZE);
         Vx < 0 ? Ox = 0x04 : Ox = 0x00;
-        Vy < 0 ? Oy = 0x00 : Oy = 0x02;
+        Vy < 0 ? Oy = 0x02 : Oy = 0x00;
         Ang_v < 0 ? Oz = 0x01 : Oz = 0x00;
         s_buffer[0] = 0xff;
         s_buffer[1] = 0xfe;
